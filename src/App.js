@@ -1,26 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Form, Input, Scope } from "@rocketseat/unform";
 
 function App() {
+  function handleSubmit(data) {
+    console.log(data);
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Form onSubmit={handleSubmit}>
+      <Input name="name" label="Nome:" />
+      <br />
+      <Scope path="address">
+        <Input name="street" label="Rua:" />
+        <br />
+        <Input name="number" label="Número:" />
+        <br />
+        <button type="submit">Enviar</button>
+      </Scope>
+    </Form>
   );
 }
-
 export default App;
